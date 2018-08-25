@@ -20,7 +20,8 @@ public class Kaprekar {
         // TODO code application logic here
         Scanner lector=new Scanner(System.in);
         DataInputStream lec=new DataInputStream(System.in);
-        int resp=0,a=0,kapre,va1=0,va2=0,aux=0,cot=0,ct=0,t=0,inter=0,nume=0;
+        int resp=0,a=0,kapre,va1=0,va2=0,
+            va3=0,aux=0,cot=0,ct=0,t=0,inter=1,nume=0;
         int []lis =new int[4];
         do{
            try{
@@ -39,11 +40,18 @@ public class Kaprekar {
                              cot=0;
                              do{
                                  lis[cot]=kapre%10;kapre/=10;cot++;
-                             }while(cot!=4);cot=0;
-                             System.out.println("Hola");
+                             }while(cot!=4);
                                                          
-                             va1=lis[0];va2=lis[1];cot=0;
-                             if(va1!=va2){
+                             for(int i=0;i<lis.length;i++){
+                                 va1=lis[i];cot=0;
+                                 for(int j=0;j<lis.length;j++){
+                                     if(va1==lis[j]){cot++;}
+                                 }
+                                 if(cot==4){
+                                     va1=5;
+                                 }
+                             } 
+                             if(va1!=5){
                                 do{
                               cot=0;
                              for(int i=0;i<lis.length;i++){
@@ -53,32 +61,29 @@ public class Kaprekar {
                                            lis[i]=lis[i+1];
                                            lis[i+1]=aux;cot++;
                                         }
-                              } }
+                              } }aux=0;
                                     }while(cot!=0);
-                                t=1000;
+                                t=1000;va1=0;
                              for(int i=0;i<lis.length;i++){
                                   System.out.println("Valor "+(i+1)+" "+lis[i]);
-                                  va1=lis[i]*t;
+                                  va1+=lis[i]*t;
                                   t/=10;if(t==0){t=1;} }
                               
                              for (int i=0; i<lis.length/2; i++){
                                      aux = lis[i];
                                      lis[i] = lis[lis.length-1-i];
                                      lis[lis.length-1-i] = aux;}
-                              
-                             for(int i=0;i<lis.length;i++){
-                                System.out.println("Valor "+(i+1)+" "+lis[i]);
-                             }
-                             
-                             t=1000;
+                                                       
+                             t=1000;va2=0;
                              for(int i=0;i<lis.length;i++){
                                System.out.println("Valor "+(i+1)+" "+lis[i]);
-                                va2=lis[i]*t;
+                                va2+=lis[i]*t;
                                t/=10;if(t==0){t=1;} }
+                             kapre=va1-va2;
                                  System.out.println("V1: "+va1);
                                  System.out.println("V2: "+va2);
                                  System.out.println("Kapreka: "+kapre);
-                             kapre=va1-va2;
+                             va1=0;va2=0;
                               if(kapre!=6174){
                                   inter++;
                               }
@@ -89,7 +94,7 @@ public class Kaprekar {
                                 }
                          }while(kapre!=6174);
                          System.out.println("Numero de interaciones "+
-                                 inter);
+                                 inter);inter=0;
                      }else{
                          System.out.println("Valor invalido vuelva a intentar");
                      }
