@@ -78,7 +78,7 @@ public class Kaprekar {
              switch(resp){
                  case 1:
                      System.out.println("Ingrese el numero de 4 digitos y "
-                          + "que el numero almenos tenga 2 digitos diferentes");
+                          + "que el numero almeno tenga 2 digitos diferentes");
                      kapre=Integer.parseInt(lec.readLine());
                      if(kapre>9&&kapre<10000){
                         do{
@@ -90,10 +90,10 @@ public class Kaprekar {
                              if(inter==0){
                               for(int i=0;i<lis.length;i++){
                                  va1=lis[i];cot=0;
-                                 for(int j=0;j<lis.length;j++){
+                                     for(int j=0;j<lis.length;j++){
                                      if(va1==lis[j]){cot++;}
-                                 }
-                                  if(cot==3){va4=5;}
+                                     }
+                                     if(cot==3){va4=5;}
                                }    }  
                              if(va4!=5){
                            do{
@@ -139,7 +139,7 @@ public class Kaprekar {
                                  kapre=6174;
                                 }
                         }while(kapre!=6174);
-                         System.out.println("Numero de interaciones "+
+                         System.out.println("Numero de interacciones "+
                                  inter);inter=1;
                      }else{
                          System.out.println("Valor invalido vuelva a intentar");
