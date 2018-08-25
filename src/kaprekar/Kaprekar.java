@@ -39,7 +39,7 @@ public class Kaprekar {
                              cot=0;
                              do{
                                  lis[cot]=kapre%10;kapre/=10;cot++;
-                             }while(cot!=4);ct=0;
+                             }while(cot!=4);cot=0;
                              System.out.println("Hola");
                                                          
                              va1=lis[0];va2=lis[1];cot=0;
@@ -68,13 +68,16 @@ public class Kaprekar {
                               
                              for(int i=0;i<lis.length;i++){
                                 System.out.println("Valor "+(i+1)+" "+lis[i]);
-                             }  
+                             }
+                             
                              t=1000;
                              for(int i=0;i<lis.length;i++){
                                System.out.println("Valor "+(i+1)+" "+lis[i]);
                                 va2=lis[i]*t;
                                t/=10;if(t==0){t=1;} }
-                             
+                                 System.out.println("V1: "+va1);
+                                 System.out.println("V2: "+va2);
+                                 System.out.println("Kapreka: "+kapre);
                              kapre=va1-va2;
                               if(kapre!=6174){
                                   inter++;
