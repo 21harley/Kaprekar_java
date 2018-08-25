@@ -21,7 +21,7 @@ public class Kaprekar {
         Scanner lector=new Scanner(System.in);
         DataInputStream lec=new DataInputStream(System.in);
         int resp=0,a=0,kapre,va1=0,va2=0,
-            va3=0,aux=0,cot=0,ct=0,t=0,inter=1,nume=0;
+            va3=0,va4=0,aux=0,cot=0,ct=0,t=0,inter=1,nume=0;
         int []lis =new int[4];
         do{
            try{
@@ -32,27 +32,26 @@ public class Kaprekar {
              resp=Integer.parseInt(lec.readLine());
              switch(resp){
                  case 1:
-                     System.out.println("Ingrese el numero de 4 digitos y"
-                          + "que el numero almos tenga 2 digitos diferentes");
+                     System.out.println("Ingrese el numero de 4 digitos y "
+                          + "que el numero almenos tenga 2 digitos diferentes");
                      kapre=Integer.parseInt(lec.readLine());
                      if(kapre>9&&kapre<10000){
-                         do{
+                        do{
                              cot=0;
                              do{
                                  lis[cot]=kapre%10;kapre/=10;cot++;
                              }while(cot!=4);
-                                                         
-                             for(int i=0;i<lis.length;i++){
+                             
+                             if(inter==0){
+                              for(int i=0;i<lis.length;i++){
                                  va1=lis[i];cot=0;
                                  for(int j=0;j<lis.length;j++){
                                      if(va1==lis[j]){cot++;}
                                  }
-                                 if(cot==4){
-                                     va1=5;
-                                 }
-                             } 
-                             if(va1!=5){
-                                do{
+                                  if(cot==3){va4=5;}
+                               }    }  
+                             if(va4!=5){
+                           do{
                               cot=0;
                              for(int i=0;i<lis.length;i++){
                                     if(i+1!=lis.length){
@@ -62,7 +61,7 @@ public class Kaprekar {
                                            lis[i+1]=aux;cot++;
                                         }
                               } }aux=0;
-                                    }while(cot!=0);
+                            }while(cot!=0);
                                 t=1000;va1=0;
                              for(int i=0;i<lis.length;i++){
                                   System.out.println("Valor "+(i+1)+" "+lis[i]);
@@ -92,9 +91,9 @@ public class Kaprekar {
                                          + "el tener 2 numeros diferente");
                                  kapre=6174;
                                 }
-                         }while(kapre!=6174);
+                        }while(kapre!=6174);
                          System.out.println("Numero de interaciones "+
-                                 inter);inter=0;
+                                 inter);inter=1;
                      }else{
                          System.out.println("Valor invalido vuelva a intentar");
                      }
@@ -112,8 +111,5 @@ public class Kaprekar {
                         + "los datos");
            }
         }while(a==0);
-      
-        
-    }
-    
+    }   
 }
